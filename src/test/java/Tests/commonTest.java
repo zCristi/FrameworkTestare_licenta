@@ -1,7 +1,7 @@
 package Tests;
 
 
-import Tests.basefunctions.WebDriverHolder;
+import Tests.Basefunctions.WebDriverHolder;
 import com.google.inject.Inject;
 import org.openqa.selenium.WebDriver;
 import org.testng.annotations.AfterMethod;
@@ -15,8 +15,8 @@ public abstract class commonTest {
 
     @Inject
     private WebDriverHolder webDriver;
-    WebDriver driver;
-    Logger logger;
+    public WebDriver driver;
+    public Logger logger;
     @BeforeMethod
     public void setup()
     {

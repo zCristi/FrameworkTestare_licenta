@@ -1,6 +1,7 @@
-package Tests;
+package Tests.ProductPage;
 
-import Tests.basefunctions.*;
+import Tests.Basefunctions.*;
+import Tests.commonTest;
 import com.google.inject.Inject;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
@@ -10,7 +11,7 @@ import java.util.List;
 
 import static org.testng.AssertJUnit.assertEquals;
 
-public class QA_16 extends commonTest{
+public class QA_18 extends commonTest {
     @Inject
     private StepClick stepClick;
     @Inject
@@ -22,12 +23,13 @@ public class QA_16 extends commonTest{
     @Inject
     private StepCleanup stepCleanup;
 
+
     protected void runSteps()
     {
         logger.info("[Test step 1] Log in");
         stepLogin.homePage(driver);
         logger.info("[Test step 2] Find item to use");
-        stepClick.byLinkText(driver,"Women");
+        stepClick.byLinkText(driver,"Gear");
         List<WebElement> productList = stepGetText.byClassName(driver,"product-item");
         stepPageLoad.implicitWaitSeconds(driver,1);
         stepClick.byWebElement(driver,productList.get(1));
@@ -35,7 +37,7 @@ public class QA_16 extends commonTest{
         stepClick.byClass(driver,"tocompare");
         stepPageLoad.waitSeconds(4);
         stepClick.byClass(driver,"compare");
-        assertEquals(driver.findElement(By.className("product-item-name")).getText(),"Breathe-Easy Tank");
+        assertEquals(driver.findElement(By.className("product-item-name")).getText(),"Push It Messenger Bag");
         stepCleanup.cleanCompare(driver);
     }
 

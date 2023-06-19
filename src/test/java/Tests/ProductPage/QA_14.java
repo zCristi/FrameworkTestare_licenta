@@ -1,16 +1,20 @@
-package Tests;
+package Tests.ProductPage;
 
-import Tests.basefunctions.*;
+import Tests.Basefunctions.StepClick;
+import Tests.Basefunctions.StepGetText;
+import Tests.Basefunctions.StepLogin;
+import Tests.Basefunctions.StepPageLoad;
+import Tests.commonTest;
 import com.google.inject.Inject;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.testng.annotations.Test;
-import java.lang.Thread;
 
 import java.util.List;
 
 import static org.testng.AssertJUnit.assertEquals;
 
-public class QA_11 extends commonTest {
+public class QA_14 extends commonTest {
     @Inject
     private StepLogin stepLogin;
     @Inject
@@ -19,12 +23,13 @@ public class QA_11 extends commonTest {
     private StepGetText stepGetText;
     @Inject
     private StepPageLoad stepPageLoad;
+
     protected void runSteps()
     {
         logger.info("[Test step 1] Log in");
         stepLogin.homePage(driver);
         logger.info("[Test step 2] Add item to cart");
-        stepClick.byLinkText(driver,"Women");
+        stepClick.byLinkText(driver,"Men");
         List<WebElement> productList = stepGetText.byClassName(driver,"product-item");
         stepPageLoad.implicitWaitSeconds(driver,1);
         stepClick.byWebElement(driver,productList.get(0));
@@ -33,10 +38,13 @@ public class QA_11 extends commonTest {
         stepClick.byWebElement(driver,sizeList.get(5));
         stepClick.byId(driver,"product-addtocart-button");
         stepPageLoad.waitSeconds(2);
-        logger.info("[Test step 3] Check checkout button works");
+        logger.info("[Test step 3] Check delete button works");
         stepClick.byClass(driver,"showcart");
-        stepClick.byId(driver,"top-cart-btn-checkout");
-        assertEquals(driver.getTitle(),"Checkout");
+        stepClick.byLinkText(driver,"View and Edit Cart");
+        List<WebElement> deleteList = stepGetText.byClassName(driver,"action-delete");
+        stepClick.byWebElement(driver,deleteList.get(0));
+        assertEquals(driver.findElement(By.className("cart-empty")).getText(),"You have no items in your shopping cart.\n" +
+                "Click here to continue shopping.");
     }
 
     @Test

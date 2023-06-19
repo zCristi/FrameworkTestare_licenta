@@ -1,13 +1,11 @@
-package Tests;
+package Tests.ShopPage;
 
-import Tests.basefunctions.StepClick;
-import Tests.basefunctions.StepGetText;
-import Tests.basefunctions.StepLogin;
+import Tests.Basefunctions.StepClick;
+import Tests.Basefunctions.StepGetText;
+import Tests.Basefunctions.StepLogin;
+import Tests.commonTest;
 import com.google.inject.Inject;
-import org.openqa.selenium.WebElement;
 import org.testng.annotations.Test;
-
-import java.util.List;
 
 import static org.testng.AssertJUnit.assertEquals;
 

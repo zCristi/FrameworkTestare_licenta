@@ -1,6 +1,7 @@
-package Tests;
+package Tests.ProductPage;
 
-import Tests.basefunctions.*;
+import Tests.Basefunctions.*;
+import Tests.commonTest;
 import com.google.inject.Inject;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
@@ -10,7 +11,7 @@ import java.util.List;
 
 import static org.testng.AssertJUnit.assertEquals;
 
-public class QA_17 extends commonTest{
+public class QA_17 extends commonTest {
     @Inject
     private StepClick stepClick;
     @Inject

@@ -1,4 +1,4 @@
-package Tests.basefunctions;
+package Tests.Basefunctions;
 
 import com.google.inject.Inject;
 import org.openqa.selenium.WebDriver;

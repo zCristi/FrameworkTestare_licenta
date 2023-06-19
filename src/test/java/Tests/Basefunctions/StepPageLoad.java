@@ -1,4 +1,4 @@
-package Tests.basefunctions;
+package Tests.Basefunctions;
 
 import org.openqa.selenium.WebDriver;
 

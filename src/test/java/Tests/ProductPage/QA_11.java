@@ -1,9 +1,7 @@
-package Tests;
+package Tests.ProductPage;
 
-import Tests.basefunctions.StepClick;
-import Tests.basefunctions.StepGetText;
-import Tests.basefunctions.StepLogin;
-import Tests.basefunctions.StepPageLoad;
+import Tests.Basefunctions.*;
+import Tests.commonTest;
 import com.google.inject.Inject;
 import org.openqa.selenium.WebElement;
 import org.testng.annotations.Test;
@@ -12,7 +10,7 @@ import java.util.List;
 
 import static org.testng.AssertJUnit.assertEquals;
 
-public class QA_12 extends commonTest{
+public class QA_11 extends commonTest {
     @Inject
     private StepLogin stepLogin;
     @Inject
@@ -35,10 +33,10 @@ public class QA_12 extends commonTest{
         stepClick.byWebElement(driver,sizeList.get(5));
         stepClick.byId(driver,"product-addtocart-button");
         stepPageLoad.waitSeconds(2);
-        logger.info("[Test step 3] Check view and edit cart still works");
+        logger.info("[Test step 3] Check checkout button works");
         stepClick.byClass(driver,"showcart");
-        stepClick.byLinkText(driver,"View and Edit Cart");
-        assertEquals(driver.getTitle(),"Shopping Cart");
+        stepClick.byId(driver,"top-cart-btn-checkout");
+        assertEquals(driver.getTitle(),"Checkout");
     }
 
     @Test

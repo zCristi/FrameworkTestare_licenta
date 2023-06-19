@@ -1,9 +1,7 @@
-package Tests;
+package Tests.ProductPage;
 
-import Tests.basefunctions.StepClick;
-import Tests.basefunctions.StepGetText;
-import Tests.basefunctions.StepLogin;
-import Tests.basefunctions.StepPageLoad;
+import Tests.Basefunctions.*;
+import Tests.commonTest;
 import com.google.inject.Inject;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
@@ -13,7 +11,7 @@ import java.util.List;
 
 import static org.testng.AssertJUnit.assertEquals;
 
-public class QA_14 extends commonTest{
+public class QA_09 extends commonTest {
     @Inject
     private StepLogin stepLogin;
     @Inject
@@ -22,13 +20,14 @@ public class QA_14 extends commonTest{
     private StepGetText stepGetText;
     @Inject
     private StepPageLoad stepPageLoad;
-
+    @Inject
+    private StepCleanup stepCleanup;
     protected void runSteps()
     {
         logger.info("[Test step 1] Log in");
         stepLogin.homePage(driver);
+        stepClick.byLinkText(driver,"Women");
         logger.info("[Test step 2] Add item to cart");
-        stepClick.byLinkText(driver,"Men");
         List<WebElement> productList = stepGetText.byClassName(driver,"product-item");
         stepPageLoad.implicitWaitSeconds(driver,1);
         stepClick.byWebElement(driver,productList.get(0));
@@ -36,14 +35,12 @@ public class QA_14 extends commonTest{
         stepClick.byWebElement(driver,sizeList.get(0));
         stepClick.byWebElement(driver,sizeList.get(5));
         stepClick.byId(driver,"product-addtocart-button");
-        stepPageLoad.waitSeconds(2);
-        logger.info("[Test step 3] Check delete button works");
+        logger.info("[Test step 3] Check product was added to cart");
+        stepPageLoad.waitSeconds(4);
         stepClick.byClass(driver,"showcart");
-        stepClick.byLinkText(driver,"View and Edit Cart");
-        List<WebElement> deleteList = stepGetText.byClassName(driver,"action-delete");
-        stepClick.byWebElement(driver,deleteList.get(0));
-        assertEquals(driver.findElement(By.className("cart-empty")).getText(),"You have no items in your shopping cart.\n" +
-                "Click here to continue shopping.");
+        assertEquals(driver.findElement(By.className("product-item-name")).getText(),"Radiant Tee");
+        stepClick.byClass(driver,"showcart");
+        stepCleanup.cleanCart(driver);
     }
 
     @Test

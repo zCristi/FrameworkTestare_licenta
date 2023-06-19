@@ -1,6 +1,7 @@
-package Tests;
+package Tests.ShopPage;
 
-import Tests.basefunctions.*;
+import Tests.Basefunctions.*;
+import Tests.commonTest;
 import com.google.inject.Inject;
 import org.openqa.selenium.WebElement;
 import org.testng.annotations.Test;

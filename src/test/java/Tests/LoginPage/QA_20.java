@@ -1,12 +1,11 @@
-package Tests;
+package Tests.LoginPage;
 
-import Tests.basefunctions.StepClick;
-import Tests.basefunctions.StepGetText;
-import Tests.basefunctions.StepLogin;
-import Tests.basefunctions.StepPageLoad;
+import Tests.Basefunctions.StepClick;
+import Tests.Basefunctions.StepGetText;
+import Tests.Basefunctions.StepLogin;
+import Tests.Basefunctions.StepPageLoad;
+import Tests.commonTest;
 import com.google.inject.Inject;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.testng.annotations.Test;
 
@@ -14,7 +13,7 @@ import java.util.List;
 
 import static org.testng.AssertJUnit.assertEquals;
 
-public class QA_20 extends commonTest{
+public class QA_20 extends commonTest {
     @Inject
     private StepLogin stepLogin;
     @Inject

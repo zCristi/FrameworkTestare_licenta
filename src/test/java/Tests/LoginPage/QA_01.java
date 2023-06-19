@@ -1,6 +1,7 @@
-package Tests;
+package Tests.LoginPage;
 
-import Tests.basefunctions.StepClick;
+import Tests.Basefunctions.StepClick;
+import Tests.commonTest;
 import org.testng.annotations.Test;
 
 import com.google.inject.Inject;
