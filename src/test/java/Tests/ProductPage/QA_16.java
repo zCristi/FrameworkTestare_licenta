@@ -34,7 +34,6 @@ public class QA_16 extends commonTest {
         stepClick.byWebElement(driver,productList.get(1));
         logger.info("[Test step 3] Add item to compare list");
         stepClick.byClass(driver,"tocompare");
-        stepPageLoad.waitSeconds(4);
         stepClick.byClass(driver,"compare");
         assertEquals(driver.findElement(By.className("product-item-name")).getText(),"Breathe-Easy Tank");
         stepCleanup.cleanCompare(driver);
